@@ -1,2 +1,3 @@
 # cpp-itp-main
-All the files I've created and need for coursework
+All the files I've created and need for coursework:
+Start to finish.
