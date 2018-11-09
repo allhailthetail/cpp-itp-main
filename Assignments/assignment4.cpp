@@ -86,6 +86,7 @@ int main(){
 */
 
 //Part 2
+/*
 #include<iostream>
 using namespace std;
 int main(){
@@ -124,6 +125,64 @@ int main(){
         << "\n\t\t\t" << "(each * = 1000 People)" << '\n'
         ;
   for (size_t i = 0; i < cityNum; i++) {
+    cout << '\n' << "City #" << i + 1 << " ";
+    for (size_t j = 0; j < cityPop[i]; j++) {
+      cout << '*';
+    }
+    cout << '\n';
+  }
+
+  //end program
+  return 0;
+}
+*/
+
+//Part II Extra Credit
+#include<iostream>
+using namespace std;
+int main(){
+  //const int cityNum = 4;
+  int
+    * cityPop,    //pointer to future aray?
+    size;         //size callout for array
+
+  //Welcome
+  cout << "Please Enter Number of Cities & Population As Total People Below:" << "\n\n";
+
+  //gather user data - city size:
+  cout << "Number of Cities: ";
+  cin >> size;
+  //create Array
+  cityPop = new int[size];
+  //gather user input - population data
+  //input verification - population must be > 0
+  bool runAgain = true;
+  do {
+    for (size_t i = 0; i < size; i++) {
+      cout << "City #" << i + 1 << " Population: ";
+      cin >> cityPop[i];
+    }
+    //loop thru all values, if any are negative, error message & re-enter
+    for (size_t i = 0; i < size; i++) {
+      if (cityPop[i] < 0) {
+        cout << "Population can't be negative. Please re-enter" << "\n\n";
+        break;
+      } else runAgain = false;
+    }
+  } while(runAgain != false);
+
+  //convert data for graphical representation
+  // 1000 people is one * (asterisk)
+  for (size_t i = 0; i < size; i++) {
+    cityPop[i] /= 1000;
+  }
+
+  //print city data - represented graphically (asterisks *)
+  //remind user of scale
+  cout  << "\n\t\t\t" << "POPULATION:"
+        << "\n\t\t\t" << "(each * = 1000 People)" << '\n'
+        ;
+  for (size_t i = 0; i < size; i++) {
     cout << '\n' << "City #" << i + 1 << " ";
     for (size_t j = 0; j < cityPop[i]; j++) {
       cout << '*';
