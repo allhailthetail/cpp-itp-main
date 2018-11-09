@@ -18,6 +18,16 @@ int main(){
     withdrawlTotal = 0;       //total withdrawals
 
 
+  //program intro
+  cout  << "*************************************************" << "\n\n"
+        << "Welcome to the banking calculator!" << '\n'
+        << "To use this program, simply input" << '\n'
+        << "The yearly interest rate, your starting balance," << '\n'
+        << "And your monthly account activity." << '\n'
+        << "The calculator then provides a summary and details" << '\n'
+        << "the amount of interest you've earned." << "\n\n"
+        << "*************************************************" << '\n'
+        ;
 
   cout << "Interest Rate: (%)";
   cin >> rate;
@@ -55,12 +65,15 @@ int main(){
 
   //print results:
   cout << fixed << showpoint << setprecision(2);
-  cout  << "Total Results For " << months << " Month Period:" << "\n\n"
+  cout  << '\n'
+        << "Total Results For " << months << " Month Period:" << '\n'
+        << "*************************" << "\n\n"
         << "Starting Balance: $" << startBal << '\n'
         << "Total Deposits: $" << depositTotal << '\n'
         << "Total Withdrawals: $" << withdrawlTotal << '\n'
         << "Total interest: $" << interestTotal << '\n'
         << "Final Balance: $" << balTotal << '\n'
+        << '\n'
         ;
 
   return 0;      //end program
