@@ -27,7 +27,6 @@ int main(){
   for (size_t i = 0; i < stores; i++) {
     cout << "Store Name: ";
     getline(cin >> ws, storeName[i]);
-    //cin >> storeName[i];
     cout << "Store Sales: $";
     cin >> sales[i];
   }
