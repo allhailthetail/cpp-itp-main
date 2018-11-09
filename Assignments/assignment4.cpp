@@ -97,8 +97,15 @@ int main(){
 
   //gather user input - population data
   for (size_t i = 0; i < cityNum; i++) {
-    cout << "City #" << i + 1 << " Population: ";
-    cin >> cityPop[i];
+    //input verification - population must be > 0
+    bool runAgain = true;
+    do {
+      cout << "City #" << i + 1 << " Population: ";
+      cin >> cityPop[i];
+      if (cityPop[i] < 0) {
+        cout << "Population cannot be negative.  Try again!!" << '\n';
+      } else runAgain = false;
+    } while(runAgain == true);
   }
   //convert data for graphical representation
   // 1000 people is one * (asterisk)
