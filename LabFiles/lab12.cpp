@@ -1,6 +1,37 @@
 //lab12.cpp
 //Matthew Younger
+/*
+//Pre-Lab:
 
+//1.
+//GIVEN:
+int main(){
+  int a[5] = {10,11,67,80,68};      //10,80,68 are printed
+
+  for (size_t i = 0; i < 5; i++) {
+    if (a[i] % 2 == 0) {            //print only even numbers...  %2 = 0
+      cout << a[i] << " " << endl;
+    }
+  }
+}
+
+//2.
+//GIVEN:
+string city[5] = {"Tempe", "New York", "Atlana", "Flagstaff", "Chicago"};
+
+int x = 0;
+for (int i = 0; i < 5; i++) {
+  if (city[i].length() > city[x].length()) {    //get longest city in array
+    x = i;
+  }
+}
+
+cout << city[x];        //print longest city's name.
+}
+
+*/
+
+//begin lab12
 #include<iostream>
 #include<iomanip>
 using namespace std;
