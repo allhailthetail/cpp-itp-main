@@ -96,17 +96,22 @@ int main(){
   cout << "Please Enter City Population As Total People Below:" << "\n\n";
 
   //gather user input - population data
-  for (size_t i = 0; i < cityNum; i++) {
-    //input verification - population must be > 0
-    bool runAgain = true;
-    do {
+  //input verification - population must be > 0
+  bool runAgain = true;
+  do {
+    for (size_t i = 0; i < cityNum; i++) {
       cout << "City #" << i + 1 << " Population: ";
       cin >> cityPop[i];
+    }
+    //loop thru all values, if any are negative, error message & re-enter
+    for (size_t i = 0; i < cityNum; i++) {
       if (cityPop[i] < 0) {
-        cout << "Population cannot be negative.  Try again!!" << '\n';
+        cout << "Population can't be negative. Please re-enter" << "\n\n";
+        break;
       } else runAgain = false;
-    } while(runAgain == true);
-  }
+    }
+  } while(runAgain != false);
+
   //convert data for graphical representation
   // 1000 people is one * (asterisk)
   for (size_t i = 0; i < cityNum; i++) {
@@ -114,6 +119,10 @@ int main(){
   }
 
   //print city data - represented graphically (asterisks *)
+  //remind user of scale
+  cout  << "\n\t\t\t" << "POPULATION:"
+        << "\n\t\t\t" << "(each * = 1000 People)" << '\n'
+        ;
   for (size_t i = 0; i < cityNum; i++) {
     cout << '\n' << "City #" << i + 1 << " ";
     for (size_t j = 0; j < cityPop[i]; j++) {
@@ -121,8 +130,6 @@ int main(){
     }
     cout << '\n';
   }
-  //remind user of scale
-  cout << "\t\t\t" << "(each * = 1000 People)" << "\n\n";
 
   //end program
   return 0;
