@@ -5,8 +5,8 @@ using namespace std;
 int main(){
   const int
     colWidth = 6,       //defines how wide/tall each column will be.
-    daysWeek = 7,
-    calColumns = 5;
+    daysWeek = 7,       //days of the week.
+    calRows = 5;        //defines how many rows to create.
 
   int columnCount = 0;
   do {
@@ -25,7 +25,7 @@ int main(){
     cout << '\n';
     }
     ++columnCount;
-  } while(columnCount < calColumns);
+  } while(columnCount < calRows);
 
   //prints bottom-most row separator
   for (size_t i = 0; i < (2 * colWidth * daysWeek + 2); i++) {
