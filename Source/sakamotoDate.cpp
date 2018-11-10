@@ -12,8 +12,8 @@ int dayofweek(int d, int m, int y)
 /* Driver function to test above function */
 int main()
 {
-    int day = dayofweek(2, 2, 2018);   //DDMMYYYY
-    printf ("%d\n", day);
+    int day = dayofweek(8, 2, 2019);   //DDMMYYYY
+    printf ("%d\n", day);   //1 is monday, 2 tues, etc...
 
     return 0;
 }
