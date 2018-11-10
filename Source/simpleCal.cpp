@@ -12,7 +12,7 @@ using namespace std;
 
 int main(){
 
-//create the header for the calendar:
+  //create the header for the calendar:
   printf("%s\n","\nNovember 2018:");
   printf("%s\n","Sun\tMon\tTue\tWed\tThu\tFri\tSat");
   printf("%s\n","===\t===\t===\t===\t===\t===\t===");
@@ -28,20 +28,16 @@ int main(){
   };
 
   //simple variables to control the loops
-  int i = 0, j = 0, k = 0;
+  //int i = 0, j = 0, k = 0;
   //nested loops print the dates...
-  while (i < 5){
-    while (j < 7) {
-      printf("%d\t",days[k]);
-      j ++;
-      k ++;
+  int daysCount = 0;
+  for (size_t i = 0; i < 5; i++) {
+    for (size_t i = 0; i < 7; i++) {
+      printf("%d\t",days[daysCount]);
+      ++daysCount;
     }
-  cout << "\n";
-  i ++;
-  j = 0;
-
+    cout << '\n';
   }
-
   //end the main program
   return 0;
 }
