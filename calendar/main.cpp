@@ -20,12 +20,26 @@ void monthHeader(int month){
     monthName[12] = {"January","February","March","April","May","June",
                 "July","August","September","October","November","December"};
 
-/* adjust month to be indexed in array */
-month -= 1;
-/* print header */
-cout << left << "\n\n" << monthName[month] << ":" << '\n';
-cout << "----------";   //underline each month name
-cout << "\n\n";   //whitespace between each month
+  /* adjust month to be indexed in array */
+  month -= 1;
+
+  /* print header */
+  cout << left << "\n\n" << " *** " << monthName[month] << " *** " << "\n\n";
+  //cout << "----------" << '\n';   //underline each month name
+  cout  << left
+        << setw(10) << "SUN"
+        << setw(10) << "MON"
+        << setw(10) << "TUE"
+        << setw(10) << "WED"
+        << setw(10) << "THU"
+        << setw(10) << "FRI"
+        << setw(10) << "SAT"
+        << '\n'
+        ;
+  for (size_t i = 0; i < 7; i++)
+    cout << left << setw(10) << "===";
+
+  cout << "\n\n";   //whitespace between month body
 }
 
 /* determines last day of the month */
@@ -44,7 +58,7 @@ int main(){
     LAST_MONTH = 12;    //last month of year, stops printing of calendar
   int
     year,               //user input...
-    calColumns = 7,
+    calColumns = 7,     //number of days in a week
     calRows = 6;
 
   //gather user input - year
@@ -64,12 +78,12 @@ int main(){
         if (day >= 1) {
           cout << left << setw(10) << " ";
           --day;
-        } else if (day <= 1 && day < monthLastDay(month)) {
+        } else if (day < 1 && counter <= monthLastDay(month)){
           cout << left << setw(10) << counter;
           ++counter;
-        }
+        } else break;
       }
-      cout << '\n';
+      cout << "\n\n";
     }
   }
 }
