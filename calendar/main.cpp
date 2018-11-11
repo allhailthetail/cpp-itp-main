@@ -1,8 +1,10 @@
-#include<iostream>
-#include<iomanip>
+#include<iostream>  //cout & cin
+#include<iomanip>   //setw, align
 using namespace std;
 
-/* Determines the first day of each month */
+/***************************** *
+* Determine First Day of Month *
+*******************************/
 int monthStart(int month, int year){
   const int
     t[] = { 0, 3, 2, 5, 0, 3, 5, 1, 4, 6, 2, 4 },  //values used in formula
@@ -14,7 +16,9 @@ int monthStart(int month, int year){
   return weekStart;
 }
 
-/* monthHeader prints the header for the calendar each month. */
+/****************
+* Month Header  *
+*****************/
 void monthHeader(int month){
   const string
     monthName[12] = {"January","February","March","April","May","June",
@@ -23,9 +27,7 @@ void monthHeader(int month){
   /* adjust month to be indexed in array */
   month -= 1;
 
-  /* print header */
   cout << left << "\n\n" << " *** " << monthName[month] << " *** " << "\n\n";
-  //cout << "----------" << '\n';   //underline each month name
   cout  << left
         << setw(10) << "SUN"
         << setw(10) << "MON"
@@ -42,7 +44,9 @@ void monthHeader(int month){
   cout << "\n\n";   //whitespace between month body
 }
 
-/* determines last day of the month */
+/********************
+* last day of month *
+********************/
 int monthLastDay(int month){
   //0 january, 11 december, etc
   const int monthLastDay[12] = {31,29,31,30,31,30,31,31,30,31,30,31};
@@ -50,9 +54,9 @@ int monthLastDay(int month){
   return monthLastDay[month];
 }
 
-
-
-/* begin main program */
+/*******************************
+*      BEGIN MAIN PROGRAM      *
+********************************/
 int main(){
   const int
     LAST_MONTH = 12;    //last month of year, stops printing of calendar
@@ -65,16 +69,14 @@ int main(){
   cout << "Enter Year: ";
   cin >> year;
 
-
-
   //starts at January and loops until LAST_MONTH
   for (size_t month = 1; month < LAST_MONTH; month++) {
     monthHeader(month);
     int day = monthStart(month,year); //call first day
     int counter = 1;
 
-    for (size_t i = 0; i < calRows; i++) {
-      for (size_t i = 0; i < calColumns; i++) {
+    for (size_t rows = 0; rows < calRows; rows++) {
+      for (size_t col = 0; col < calColumns; col++) {
         if (day >= 1) {
           cout << left << setw(10) << " ";
           --day;
@@ -83,7 +85,7 @@ int main(){
           ++counter;
         } else break;
       }
-      cout << "\n\n";
+      cout << "\n\n"; //begin new line for next calendar row
     }
   }
 }
