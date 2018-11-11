@@ -1,5 +1,6 @@
-#include<iostream>  //cout & cin
+#include<iostream>  //outputFile & cin
 #include<iomanip>   //setw, align
+#include<fstream>   //file operations
 using namespace std;
 /***************************** *
 * Determine First Day of Month *
@@ -33,14 +34,14 @@ int monthLastDay(int month, int year){
 /****************
 * Month Header  *
 *****************/
-void monthHeader(int month,int year){
+void monthHeader(ofstream& outputFile, int month,int year){
   const string
     monthName[12] = {"January","February","March","April","May","June",
                 "July","August","September","October","November","December"};
   month -= 1;   /* adjust month to be indexed in array */
   //print month header and days of the week
-  cout << left << "\n\n" << " *** " << monthName[month] << " " << year << " *** " << "\n\n";
-  cout  << left
+  outputFile << left << "\n\n" << " *** " << monthName[month] << " " << year << " *** " << "\n\n";
+  outputFile  << left
         << setw(10) << "SUN"
         << setw(10) << "MON"
         << setw(10) << "TUE"
@@ -51,13 +52,15 @@ void monthHeader(int month,int year){
         << '\n'
         ;
   for (size_t i = 0; i < 7; i++)
-    cout << left << setw(10) << "===";
-  cout << "\n\n";   //whitespace between month & calendar body
+    outputFile << left << setw(10) << "===";
+  outputFile << "\n\n";   //whitespace between month & calendar body
 }
 /*******************************
 *      BEGIN MAIN PROGRAM      *
 ********************************/
 int main(){
+  ofstream outputFile;          //file the program outputs to
+  outputFile.open("cal.txt");   //cal.txt
   const int
     LAST_MONTH = 12;    //last month of year, stops printing of calendar
   int
@@ -69,21 +72,21 @@ int main(){
   cin >> year;
   //starts at January and loops until LAST_MONTH
   for (size_t month = 1; month <= LAST_MONTH; month++) {
-    monthHeader(month,year);
+    monthHeader(outputFile,month,year);
     int day = monthStart(month,year); //call first day
     int counter = 1;
 
     for (size_t rows = 0; rows < calRows; rows++) {
       for (size_t col = 0; col < calColumns; col++) {
         if (day >= 1) {
-          cout << left << setw(10) << " ";
+          outputFile << left << setw(10) << " ";
           --day;
         } else if (day < 1 && counter <= monthLastDay(month,year)){
-          cout << left << setw(10) << counter;
+          outputFile << left << setw(10) << counter;
           ++counter;
         } else break;
       }
-      cout << "\n\n"; //begin new line for next calendar row
+      outputFile << "\n\n"; //begin new line for next calendar row
     }
   }
 }
