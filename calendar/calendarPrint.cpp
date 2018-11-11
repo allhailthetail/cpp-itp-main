@@ -67,6 +67,14 @@ int main(){
     year,               //user input...
     calColumns = 7,     //number of days in a week
     calRows = 6;
+  //welcome to program;
+  cout  << "Welcome to the calendarPrint!!" << "\n\n"
+        << "Instructions:" << '\n'
+        << "To use this program, simply input a given year." << '\n'
+        << "The program then generates a file in the program directory," << '\n'
+        << "called cal.txt as plaintext" << '\n'
+        << "This file can then be printed and manipulated accordingly." << "\n\n"
+        ;
   //gather user input - year
   cout << "Enter Year: ";
   cin >> year;
