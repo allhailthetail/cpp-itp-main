@@ -1,7 +1,6 @@
 #include<iostream>  //cout & cin
 #include<iomanip>   //setw, align
 using namespace std;
-
 /***************************** *
 * Determine First Day of Month *
 *******************************/
@@ -12,8 +11,14 @@ int monthStart(int month, int year){
   int weekStart;
   year -= month < 3;  //formats for array indexing
   weekStart = ( year + year/4 - year/100 + year/400 + t[month-1] + day) % 7;
-
-  return weekStart;
+  return weekStart; //return result
+}
+/***************************** *
+* Determine Last Day of Month *
+*******************************/
+int monthLastDay(int month, int year){
+  //0 january, 11 december, etc
+  int monthLastDay[12] = {31,28,31,30,31,30,31,31,30,31,30,31};
   //adjust february for leapyear
   if (year%4 == 0){
     if (year%100 == 0) {
@@ -22,20 +27,18 @@ int monthStart(int month, int year){
       }
     } else monthLastDay[1] = 29;
   }
+  month -= 1; //format month to be indexed
+  return monthLastDay[month];
 }
-
 /****************
 * Month Header  *
 *****************/
-void monthHeader(int month){
+void monthHeader(int month,int year){
   const string
     monthName[12] = {"January","February","March","April","May","June",
                 "July","August","September","October","November","December"};
-
-  /* adjust month to be indexed in array */
-  month -= 1;
-
-  cout << left << "\n\n" << " *** " << monthName[month] << " *** " << "\n\n";
+  month -= 1;   /* adjust month to be indexed in array */
+  //print month header and days of the week
   cout << left << "\n\n" << " *** " << monthName[month] << " " << year << " *** " << "\n\n";
   cout  << left
         << setw(10) << "SUN"
@@ -49,20 +52,8 @@ void monthHeader(int month){
         ;
   for (size_t i = 0; i < 7; i++)
     cout << left << setw(10) << "===";
-
-  cout << "\n\n";   //whitespace between month body
+  cout << "\n\n";   //whitespace between month & calendar body
 }
-
-/********************
-* last day of month *
-********************/
-int monthLastDay(int month){
-  //0 january, 11 december, etc
-  const int monthLastDay[12] = {31,29,31,30,31,30,31,31,30,31,30,31};
-  month -= 1; //format month to be indexed
-  return monthLastDay[month];
-}
-
 /*******************************
 *      BEGIN MAIN PROGRAM      *
 ********************************/
@@ -73,15 +64,12 @@ int main(){
     year,               //user input...
     calColumns = 7,     //number of days in a week
     calRows = 6;
-
   //gather user input - year
   cout << "Enter Year: ";
   cin >> year;
-
   //starts at January and loops until LAST_MONTH
-  for (size_t month = 1; month < LAST_MONTH; month++) {
-    monthHeader(month);
   for (size_t month = 1; month <= LAST_MONTH; month++) {
+    monthHeader(month,year);
     int day = monthStart(month,year); //call first day
     int counter = 1;
 
@@ -90,7 +78,7 @@ int main(){
         if (day >= 1) {
           cout << left << setw(10) << " ";
           --day;
-        } else if (day < 1 && counter <= monthLastDay(month)){
+        } else if (day < 1 && counter <= monthLastDay(month,year)){
           cout << left << setw(10) << counter;
           ++counter;
         } else break;
