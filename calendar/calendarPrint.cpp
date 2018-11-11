@@ -72,8 +72,8 @@ int main(){
         << "Instructions:" << '\n'
         << "To use this program, simply input a given year." << '\n'
         << "The program then generates a file in the program directory," << '\n'
-        << "called cal.txt as plaintext" << '\n'
-        << "This file can then be printed and manipulated accordingly." << "\n\n"
+        << "called cal.txt as plaintext." << '\n'
+        << "The file can be printed and manipulated accordingly." << "\n\n"
         ;
   //gather user input - year
   cout << "Enter Year: ";
