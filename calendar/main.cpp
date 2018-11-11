@@ -28,6 +28,7 @@ void monthHeader(int month){
   month -= 1;
 
   cout << left << "\n\n" << " *** " << monthName[month] << " *** " << "\n\n";
+  cout << left << "\n\n" << " *** " << monthName[month] << " " << year << " *** " << "\n\n";
   cout  << left
         << setw(10) << "SUN"
         << setw(10) << "MON"
