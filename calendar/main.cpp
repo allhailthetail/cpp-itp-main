@@ -14,6 +14,14 @@ int monthStart(int month, int year){
   weekStart = ( year + year/4 - year/100 + year/400 + t[month-1] + day) % 7;
 
   return weekStart;
+  //adjust february for leapyear
+  if (year%4 == 0){
+    if (year%100 == 0) {
+      if (year%400 == 0) {
+        monthLastDay[1] = 29;
+      }
+    } else monthLastDay[1] = 29;
+  }
 }
 
 /****************
