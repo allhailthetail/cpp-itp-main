@@ -72,6 +72,7 @@ int main(){
   //starts at January and loops until LAST_MONTH
   for (size_t month = 1; month < LAST_MONTH; month++) {
     monthHeader(month);
+  for (size_t month = 1; month <= LAST_MONTH; month++) {
     int day = monthStart(month,year); //call first day
     int counter = 1;
 
