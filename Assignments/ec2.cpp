@@ -1,7 +1,8 @@
 /*
 ec2.cpp
 Extra Credit Assignment #2
-Matthew Younger*/
+Matthew Younger
+*/
 #include<iostream>
 #include<iomanip>
 using namespace std;
