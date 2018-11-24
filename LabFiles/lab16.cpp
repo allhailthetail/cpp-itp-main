@@ -4,7 +4,7 @@ lab16.cpp
 */
 
 
-
+/*
 //Part A
 
 #include<iostream>
@@ -67,11 +67,11 @@ double findCircumference(double radius){
 
   return circumference;
 }
+*/
 
 
 
-/*
-Part B:
+//Part B:
 
 // This program takes two numbers (payRate & hours) // and multiplies them to get grosspay.
 // It then calculates net pay by subtracting 15%
@@ -139,5 +139,3 @@ void printPay(double &grossPay, double &netPay){
         << "\n\n"
         ;
 }
-
-*/
