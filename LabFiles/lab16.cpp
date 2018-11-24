@@ -4,8 +4,8 @@ lab16.cpp
 */
 
 
-/*
-Part A
+
+//Part A
 
 #include<iostream>
 #include<cmath>
@@ -31,8 +31,8 @@ int main(){
 
   //output the results
   cout  << "A circle of radius: " << radius
-        << " Has an area of: " << area << '\n'
         << fixed << setprecision(4)
+        << " Has an area of: " << area << '\n'
         << " and a circumference of: " << circumference << '\n'
         ;
 
@@ -68,8 +68,10 @@ double findCircumference(double radius){
   return circumference;
 }
 
-*/
 
+
+/*
+Part B:
 
 // This program takes two numbers (payRate & hours) // and multiplies them to get grosspay.
 // It then calculates net pay by subtracting 15%
@@ -107,7 +109,7 @@ printPay(grossPay, netPay);
 return 0;
 }
 
-void printDescription(){  
+void printDescription(){
 cout  << "\n\n"
       << "************************************************" << '\n'
       << "This program takes two numbers (payRate & hours)" << '\n'
@@ -137,3 +139,5 @@ void printPay(double &grossPay, double &netPay){
         << "\n\n"
         ;
 }
+
+*/
